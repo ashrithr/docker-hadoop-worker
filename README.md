@@ -1,12 +1,22 @@
-# Launching hadoop-worker container
+# Hadoop Worker
 
-## Pulling the master image
+Hadoop worker image which configures HDFS DataNode & YARN NodeManager.
+
+## Build
 
 ```
-docker pull ashrithr/hadoop-master:latest
+build -t ashrithr/hadoop-worker .
 ```
 
-## Start a master container:
+## Usage
+
+```
+docker pull ashrithr/hadoop-worker:latest
+```
+
+### Start a master container
+
+Run Hadoop worker container in daemonized mode
 
 ```
 docker run -d -h hadoop.worker --name hadoop.worker -e HADOOP_REPLICATION=1 -e HADOOP_MASTER=hadoop.master --net hadoop00 ashrithr/hadoop-worker
